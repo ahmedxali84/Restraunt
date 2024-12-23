@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crimson Dine - Contact Us</title>
+  <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@3.4.0/dark.css" rel="stylesheet">
+  <style>
+        /* General Styles */
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+      }
+  
+      body {
+        background-color: #111;
+        color: #fff;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+  
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 50px;
+        background-color: #000;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+  
+      .navbar .logo {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #fff;
+        text-transform: uppercase;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+      }
+  
+      .navbar ul {
+        display: flex;
+        gap: 30px;
+      }
+  
+      .navbar ul li {
+        font-size: 1.1rem;
+        font-weight: 500;
+        position: relative;
+        transition: color 0.3s ease;
+      }
+  
+      .navbar ul li:hover {
+        color: #e63946;
+      }
+  
+      .navbar ul li::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background-color: #e63946;
+        transition: width 0.4s ease;
+      }
+  
+      .navbar ul li:hover::after {
+        width: 100%;
+      }
+  
+      /* Hero Section */
+      .hero {
+        text-align: center;
+        padding: 100px 20px;
+        background: url('https://source.unsplash.com/1600x900/?restaurant') no-repeat center center/cover;
+        animation: fadeIn 1.5s ease-in-out;
+        color: #fff;
+        position: relative;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+      }
+  
+      .hero h1 {
+        font-size: 4.5rem;
+        font-weight: bold;
+        text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6);
+      }
+  
+      .hero p {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+  
+      .hero button {
+        padding: 15px 30px;
+        background-color: #e63946;
+        border: none;
+        border-radius: 50px;
+        color: #fff;
+        font-weight: bold;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: transform 0.3s, background-color 0.3s;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+      }
+  
+      .hero button:hover {
+        transform: scale(1.1);
+        background-color: #d72f3b;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+      }
+  
+      /* Contact Section */
+      .contact {
+        padding: 80px 20px;
+        background-color: #222;
+        text-align: center;
+      }
+  
+      .contact h2 {
+        font-size: 2.5rem;
+        color: #e63946;
+        margin-bottom: 40px;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+        animation: fadeIn 1.5s ease-in-out;
+      }
+  
+      .contact .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+  
+      .contact input, .contact textarea {
+        padding: 15px;
+        width: 400px;
+        background-color: #333;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 1rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+  
+      .contact textarea {
+        height: 150px;
+        resize: none;
+      }
+  
+      .contact button {
+        padding: 15px 30px;
+        background-color: #e63946;
+        border: none;
+        border-radius: 50px;
+        color: #fff;
+        font-weight: bold;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: transform 0.3s, background-color 0.3s;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+      }
+  
+      .contact button:hover {
+        transform: scale(1.1);
+        background-color: #d72f3b;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+      }
+  
+      .contact .social-buttons {
+        margin-top: 40px;
+      }
+  
+      .contact .social-buttons a {
+        padding: 15px 30px;
+        margin: 0 15px;
+        background-color: #333;
+        color: #fff;
+        font-size: 1.2rem;
+        text-decoration: none;
+        border-radius: 50px;
+        transition: transform 0.3s, background-color 0.3s;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      }
+  
+      .contact .social-buttons a:hover {
+        transform: scale(1.1);
+        background-color: #e63946;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+      }
+  
+      /* Star Rating */
+      .stars {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 30px;
+        margin-bottom: 20px;
+      }
+  
+      .stars input {
+        display: none;
+      }
+  
+      .stars label {
+        font-size: 2rem;
+        color: #ccc;
+        cursor: pointer;
+        transition: color 0.3s;
+      }
+  
+      .stars input:checked ~ label,
+      .stars input:hover ~ label {
+        color: #f2d900;
+      }
+  
+      .stars label:hover {
+        color: #f2d900;
+      }
+  
+      .footer {
+        background-color: #111;
+        padding: 40px 20px;
+        color: #ddd;
+        text-align: center;
+        box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
+      }
+  
+      .footer a {
+        color: #e63946;
+        font-weight: bold;
+      }
+  
+      .footer a:hover {
+        text-decoration: underline;
+      }
+  
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="logo">Crimson Dine</div>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../specialities/index.html">Specialties</a></li>
+      <li><a href="../Dishes/index.html">Dishes</a></li>
+      <li><a href="../contact/index.html">Contact</a></li>
+    </ul>
+  </div>
+
+  <div class="hero">
+    <h1>Contact Us</h1>
+    <p>We would love to hear from you! Reach out for any inquiries or feedback.</p>
+    <button>Get in Touch</button>
+  </div>
+
+  <div class="contact">
+    <h2>Contact Form</h2>
+    <div class="form-container">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" placeholder="Your Message" required></textarea>
+      <div class="stars">
+        <input type="radio" name="rating" id="star1" value="1">
+        <label for="star1">☆</label>
+        <input type="radio" name="rating" id="star2" value="2">
+        <label for="star2">☆</label>
+        <input type="radio" name="rating" id="star3" value="3">
+        <label for="star3">☆</label>
+        <input type="radio" name="rating" id="star4" value="4">
+        <label for="star4">☆</label>
+        <input type="radio" name="rating" id="star5" value="5">
+        <label for="star5">☆</label>
+      </div>
+      <button onclick="submitContactForm()">Submit</button>
+    </div>
+
+    <div class="social-buttons">
+      <a href="https://facebook.com" target="_blank">Facebook</a>
+      <a href="https://instagram.com" target="_blank">Instagram</a>
+      <a href="https://twitter.com" target="_blank">Twitter</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>© 2024 Crimson Dine. All rights reserved. <a href="privacy-policy.html">Privacy Policy</a></p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="app.js"></script>
+</body>
+</html>
